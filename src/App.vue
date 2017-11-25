@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-inverse text-white" style="min-height: 100%; height: 100%;">
+  <div id="app">
     <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
         </ul>
       </div>
     </nav>
-    <div class="container">
+    <div class="container" >
       <router-view></router-view>
     </div>
   </div>

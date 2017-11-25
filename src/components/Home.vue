@@ -3,6 +3,20 @@
     <div class="text-center">
     </div>
     <progress-bar time="5 min"></progress-bar>
+    <gmap-map
+    :center="center"
+    :zoom="6"
+    style="width: 400px; height: 600px"
+  >
+    <gmap-marker
+      :key="index"
+      v-for="(m, index) in markers"
+      :position="m.position"
+      :clickable="true"
+      :draggable="true"
+      @click="center=m.position"
+    ></gmap-marker>
+  </gmap-map>
   </div>
 </template>
 
@@ -13,7 +27,13 @@ export default {
   name: "home",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      center: {lat: 54.0, lng: -2.0},
+
+      markers: [
+        {
+          position: {lat: 54.0, lng: -2.0}
+        }
+      ]
     };
   },
   components: {

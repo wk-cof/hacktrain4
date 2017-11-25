@@ -10,6 +10,16 @@ import App from './App'
 import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
+import * as VueGoogleMaps from 'vue2-google-maps'
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyAszqfPxMof4isgNOwrgun1PQPHlM9sEko',
+    libraries: 'places', // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+  }
+})
 
 const routes = [
   { path: '/home', component: Home, alias: '/' },

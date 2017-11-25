@@ -1,18 +1,14 @@
 <template>
   <div>
     <div class="container">
-        <!-- <div class="row">
-            <div class="col-md-3 col-sm-6"> -->
-                <div class="progress blue">
-                    <span class="progress-left">
-                        <span class="progress-bar"></span>
-                    </span>
-                    <span class="progress-right">
-                        <span class="progress-bar"></span>
-                    </span>
-                    <div class="progress-value">{{time}}</div>
-                <!-- </div>
-            </div> -->
+        <div class="progress blue">
+            <span class="progress-left">
+                <span class="progress-bar"></span>
+            </span>
+            <span class="progress-right">
+                <span class="progress-bar"></span>
+            </span>
+            <div class="progress-value">{{time}}</div>
         </div>
     </div>
   </div>

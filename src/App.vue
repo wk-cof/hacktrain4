@@ -7,6 +7,7 @@
       <!-- <a class="navbar-brand" href="/">GeoIncident</a> -->
       <a class="navbar-brand" href="#">
         <img src="./assets/logo.png" width="30" height="30" alt="qwer">
+        <span class="text-success">Geo-Incident</span>
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">

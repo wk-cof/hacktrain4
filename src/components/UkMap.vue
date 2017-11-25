@@ -3,7 +3,7 @@
     <gmap-map
     :center="center"
     :zoom="6"
-    style="width: 400px; height: 600px"
+    style="width: 1200px; height: 600px"
   >
     <gmap-marker
       :key="index"
@@ -30,11 +30,7 @@ export default {
 
       markers: [
         {
-          position: {lat: 54.0, lng: -2.0},
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 10
-          }
+          position: {lat: 54.0, lng: -2.0}
         }
       ]
     };
@@ -54,7 +50,6 @@ export default {
           }
         };
       });
-      // mappedData.pop();
       return mappedData;
     },
     processData(allText) {

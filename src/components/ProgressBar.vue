@@ -1,16 +1,17 @@
 <template>
   <div>
-    <div class="container">
+    <!-- <div class="container"> -->
+        <div class="my-progress-bar">
+            <h2>{{station}}</h2>
         <div class="progress blue">
-            <span class="progress-left">
-                <span class="progress-bar"></span>
-            </span>
             <span class="progress-right">
                 <span class="progress-bar"></span>
             </span>
-            <div class="progress-value">{{time}}</div>
+            <div class="progress-value">{{time}} min</div>
         </div>
-    </div>
+        </div>
+
+    <!-- </div> -->
   </div>
 </template>
 
@@ -22,18 +23,22 @@ export default {
 
     }
   },
-  props: ['time']
+  props: ['time', 'station']
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.my-progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .progress{
     width: 150px;
     height: 150px;
     line-height: 150px;
     background: none;
-    margin: 0 auto;
     box-shadow: none;
     position: relative;
 }

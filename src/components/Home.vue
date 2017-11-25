@@ -22,6 +22,8 @@
 
 <script>
 import ProgressBar from './ProgressBar';
+import stanoxData from "../data/stanox";
+import _ from "lodash";
 
 export default {
   name: "home",
@@ -38,6 +40,37 @@ export default {
   },
   components: {
     'progress-bar': ProgressBar
+  },
+  methods: {
+    createNodes(data) {
+      let iterator = 0;
+      let mappedData = _.map(data, (dataPoint, idx) => {
+        iterator++;
+        return {
+          position: {
+            lat: parseFloat(dataPoint[1]),
+            lng: parseFloat(dataPoint[2])
+          }
+        };
+      });
+      // mappedData.pop();
+      return mappedData;
+    },
+    processData(allText) {
+      let allTextLines = allText.split(/\r\n|\n/);
+      allTextLines.splice(0, 1);
+      let lines = [];
+      while (allTextLines.length > 0) {
+        let [currentLine] = allTextLines.splice(0, 1);
+        lines.push(currentLine.split(","));
+      }
+      return lines;
+    }
+  },
+  created: function() {
+    let processedData = this.processData(stanoxData);
+    let mappedData = this.createNodes(processedData);
+    this.markers = mappedData.splice(0, 500);
   }
 };
 </script>

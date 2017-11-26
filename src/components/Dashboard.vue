@@ -6,12 +6,12 @@
             <div class="bg-inverse text-white my-dashboard" v-show="displayInfographics">
                 <div class="my-infographics">
                     <h2>{{time}} minutes</h2>
-                    <p class="text-muted">Average delay time</p>
+                    <p  style="margin-top: -30px">Average delay time</p>
                 </div>
                 <progress-bar :time="time" :station="station"></progress-bar>
                 <div class="my-infographics">
                     <h2>{{probability}}%</h2>
-                    <p class="text-muted">Delay probability</p>
+                    <p  style="margin-top: -30px">Delay probability</p>
                 </div>
             </div>
         </div>

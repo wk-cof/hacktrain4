@@ -2,10 +2,11 @@
   <div class="vertical-table">
     <b-btn v-b-toggle.collapse2 variant="primary" >Toggle Critical Stations</b-btn>
     <b-collapse id="collapse2" class="mt-2">
-        <b-table dark hover :items="items">
-            <template slot="actions" scope="cell">
-            <!-- We use click.stop here to prevent a 'row-clicked' event from also happening -->
-            <b-btn size="sm" @click.stop="details(cell.item,cell.index,$event.target)">Details</b-btn>
+        <b-table :fields="fields" :items="items">
+            <template slot="cs" scope="data">
+            <a :href="`#`" v-on:click="linkClicked">
+                {{data.item.critical_stations}}
+            </a>
             </template>
         </b-table>
     </b-collapse>
@@ -19,6 +20,11 @@ export default {
   name: "verticaltable",
   data() {
     return {
+        fields: [
+        {
+          key: 'cs',
+          label: 'Critical Station'
+        }],
       items: [
         {     critical_stations: 'WHITEHALL JN' },
         {     critical_stations: 'NEWARK NORTH GATE' },
@@ -27,6 +33,33 @@ export default {
         {     critical_stations: 'TALLINGTON JN' },
       ]
     };
+  },
+  methods: {
+      linkClicked(args) {
+        EventBus.$emit('point-clicked', {
+            "Affected_Stanox": 16523,
+            "Latitude": 53.7823,
+            "Longitude": -1.06197,
+            "Number_of_Effects": 41,
+            "Delay_Avg": 15,
+            "Stanox_Name": "WHITEHALL JN",
+            "Train_Service1": "DBC UK: Ketton / Clitheroe - St. Pancras",
+            "Train_Service2": "DBC UK: Stud Farm - Bury St. Edmunds / Marks Tey",
+            "Train_Service3": "DBC UK: Mountsorrel - Broxbourne",
+            "Affected_Operator1": "TPE",
+            "Affected_Operator2": "TPE",
+            "Affected_Operator3": "EWS",
+            "Delay_Time1": 6,
+            "Delay_Time2": 11,
+            "Delay_Time3": 28,
+            "Time_to_Delay1": 13,
+            "Time_to_Delay2": 27,
+            "Time_to_Delay3": 111,
+            "Confidence1": 91,
+            "Confidence2": 74,
+            "Confidence3": 75
+        });
+      }
   },
   created: function() {
     // EventBus.$on('point-clicked', point => {

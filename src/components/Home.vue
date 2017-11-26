@@ -1,7 +1,7 @@
 <template>
   <div class="bg-inverse text-white my-home-div">
     <dashboard class="my-db"></dashboard>
-    <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse">
+    <!-- <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -12,7 +12,7 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </nav> -->
     <uk-map v-if="!showSmallMap"></uk-map>
     <event-map v-else></event-map>
   </div>

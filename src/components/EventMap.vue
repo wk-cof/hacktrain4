@@ -1,7 +1,10 @@
 <template>
   <div>
-    <vertical-table style="position: aboslute; left: 250px; "></vertical-table>
+    <div style="display: flex;">
+      <vertical-table class='vertical-table'></vertical-table>
+      &nbsp;&nbsp;
       <horizontal-table></horizontal-table>
+    </div>
       <gmap-map
         :center="center"
         :zoom="6"
@@ -66,5 +69,9 @@ export default {
 .outer-div {
   display: flex;
   flex-direction: row;
+}
+.vertical-table {
+  /* position: aboslute;
+  left: 150px; */
 }
 </style>

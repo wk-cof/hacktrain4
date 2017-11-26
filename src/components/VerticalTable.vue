@@ -93,6 +93,6 @@ export default {
 
 <style scoped>
     .vertical-table {
-        position: absolute;
+        /* position: absolute; */
     }
 </style>

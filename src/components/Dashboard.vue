@@ -49,7 +49,7 @@ export default {
             ]
         },
         forceShowSmallTable: false,
-        station: 'London Station'
+        station: 'LONDON KINGS CROSS'
     };
   },
   computed: {

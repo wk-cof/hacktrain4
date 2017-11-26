@@ -35,21 +35,21 @@ export default {
           affected_operator: point.Affected_Operator1,
           delay_time: point.Delay_Time1,
           time_to_delay: point.Time_to_Delay1,
-          confidence: point.Confidence1
+          confidence: point.Confidence1 + '%'
         },
         {
           train_service: point.Train_Service2,
           affected_operator: point.Affected_Operator2,
           delay_time: point.Delay_Time2,
           time_to_delay: point.Time_to_Delay2,
-          confidence: point.Confidence2
+          confidence: point.Confidence2 + '%'
         },
         {
           train_service: point.Train_Service3,
           affected_operator: point.Affected_Operator3,
           delay_time: point.Delay_Time3,
           time_to_delay: point.Time_to_Delay3,
-          confidence: point.Confidence3
+          confidence: point.Confidence3 + '%'
         }
       ]
     });

@@ -9,7 +9,7 @@
         <img src="./assets/logo.png" width="30" height="30" alt="qwer">
         <span class="text-success">Geo-Incident</span>
       </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/about">All Stations</a>
@@ -18,7 +18,7 @@
             <a class="nav-link" href="/contact">Affected Stations</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </nav>
     <div class="container-fluid">
       <router-view></router-view>

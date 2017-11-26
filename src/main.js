@@ -11,6 +11,9 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import * as VueGoogleMaps from 'vue2-google-maps'
+// import BootstrapVue from 'bootstrap-vue'
+
+// Vue.use(BootstrapVue);
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyAszqfPxMof4isgNOwrgun1PQPHlM9sEko',

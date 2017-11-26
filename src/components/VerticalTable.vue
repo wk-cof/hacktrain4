@@ -1,10 +1,13 @@
 <template>
-  <div class="about">
-    <b-btn v-b-toggle.collapse1 variant="primary">Toggle Critical Stations</b-btn>
-    <b-collapse id="collapse1" class="mt-2">
-        <!-- <b-card> -->
-            <b-table hover :items="items"></b-table>
-        <!-- </b-card> -->
+  <div class="vertical-table">
+    <b-btn v-b-toggle.collapse2 variant="primary" >Toggle Critical Stations</b-btn>
+    <b-collapse id="collapse2" class="mt-2">
+        <b-table dark hover :items="items">
+            <template slot="actions" scope="cell">
+            <!-- We use click.stop here to prevent a 'row-clicked' event from also happening -->
+            <b-btn size="sm" @click.stop="details(cell.item,cell.index,$event.target)">Details</b-btn>
+            </template>
+        </b-table>
     </b-collapse>
   </div>
 </template>
@@ -17,11 +20,11 @@ export default {
   data() {
     return {
       items: [
-        { my_row: true },
-        { my_row: false },
-        { my_row: true },
-        { my_row: true },
-        { my_row: false },
+        {     critical_stations: 'WHITEHALL JN' },
+        {     critical_stations: 'NEWARK NORTH GATE' },
+        {     critical_stations: 'GILBERDYKE' },
+        {     critical_stations: 'FINSBURY PARK' },
+        {     critical_stations: 'TALLINGTON JN' },
       ]
     };
   },
@@ -56,5 +59,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .vertical-table {
+        position: absolute;
+    }
 </style>

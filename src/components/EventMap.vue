@@ -1,20 +1,21 @@
 <template>
   <div>
-    <horizontal-table></horizontal-table>
-    <gmap-map
-    :center="center"
-    :zoom="6"
-    style="width: 1200px; height: 600px"
-  >
-    <gmap-marker
-      :key="index"
-      v-for="(m, index) in markers"
-      :position="m.position"
-      :clickable="true"
-      :draggable="false"
-      @click="processClick(markers[index])"
-    ></gmap-marker>
-  </gmap-map>
+    <vertical-table style="position: aboslute; left: 250px; "></vertical-table>
+      <horizontal-table></horizontal-table>
+      <gmap-map
+        :center="center"
+        :zoom="6"
+        style="width: 1200px; height: 600px"
+      >
+        <gmap-marker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          :clickable="true"
+          :draggable="false"
+          @click="processClick(markers[index])"
+        ></gmap-marker>
+      </gmap-map>
   </div>
 </template>
 
@@ -23,6 +24,7 @@ import delayInstance from "../data/delayInstance4";
 import _ from "lodash";
 import { EventBus } from '../event-bus.js';
 import HorizontalTable from './HorizontalTable';
+import VerticalTable from './VerticalTable';
 
 export default {
   name: "eventmap",
@@ -53,11 +55,16 @@ export default {
     this.markers = this.formatInput();
   },
   components: {
-    'horizontal-table': HorizontalTable
+    'horizontal-table': HorizontalTable,
+    'vertical-table': VerticalTable
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.outer-div {
+  display: flex;
+  flex-direction: row;
+}
 </style>

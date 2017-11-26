@@ -66,7 +66,7 @@ export default {
   created: function() {
       EventBus.$on('point-clicked', point => {
           this.time = Math.floor(point.Delay_Avg * 100) / 100;
-          this.probability = Math.floor(point.Number_of_Effects / 12 * 100);
+          this.probability = Math.min(Math.floor(point.Number_of_Effects / 12 * 100), 100);
           this.station = point.Stanox_Name;
       });
       EventBus.$on('show-small-map', value => {

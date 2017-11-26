@@ -18,25 +18,19 @@
 </template>
 
 <script>
-import ProgressBar from './ProgressBar';
 import stanoxData from "../data/stanox";
+import delayInstance from "../data/delayInstance";
 import _ from "lodash";
 
 export default {
-  name: "ukmap",
+  name: "eventmap",
   data() {
     return {
       center: {lat: 54.0, lng: -2.0},
 
       markers: [
-        {
-          position: {lat: 54.0, lng: -2.0}
-        }
       ]
     };
-  },
-  components: {
-    'progress-bar': ProgressBar
   },
   methods: {
     createNodes(data) {
@@ -64,12 +58,23 @@ export default {
     },
     processClick(idx) {
         alert('Pin ' + idx + ' was clicked');
+    },
+    getAffectedNodes() {
+      return _.map(delayInstance, item => {
+        return item['Affected_Stanox'];
+      });
+    },
+    getCoordinatesOfAffectedNodes(data, affectedNodes) {
+      return _.filter(data, item => {
+        return affectedNodes.includes(item[0]);
+      });
     }
   },
   created: function() {
     let processedData = this.processData(stanoxData);
-    let mappedData = this.createNodes(processedData);
-    this.markers = _.shuffle(mappedData).splice(0, 500);
+    let affectedNodes = this.getAffectedNodes(delayInstance);
+    let things = this.getCoordinatesOfAffectedNodes(processedData, affectedNodes);
+    this.markers = this.createNodes(things);
   }
 };
 </script>

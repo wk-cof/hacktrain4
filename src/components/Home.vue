@@ -13,13 +13,14 @@
         </ul>
       </div>
     </nav>
-    <uk-map></uk-map>
+    <event-map></event-map>
   </div>
 </template>
 
 <script>
 import Dashboard from './Dashboard';
 import UkMap from './UkMap';
+import EventMap from './EventMap';
 
 export default {
   name: "home",
@@ -29,7 +30,8 @@ export default {
   },
   components: {
     'dashboard': Dashboard,
-    'uk-map': UkMap
+    'event-map': UkMap,
+    'event-map': EventMap
   }
 };
 </script>

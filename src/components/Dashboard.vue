@@ -8,7 +8,7 @@
                     <h2>{{time}} minutes</h2>
                     <p class="text-muted">Average delay time</p>
                 </div>
-                <progress-bar :time="time" station="London Station"></progress-bar>
+                <progress-bar :time="time" :station="station"></progress-bar>
                 <div class="my-infographics">
                     <h2>{{probability}}%</h2>
                     <p class="text-muted">Delay probability</p>
@@ -47,7 +47,9 @@ export default {
                 { value: '3', text: 'Severe Weather, Autumn & Structures' },
                 { value: '4', text: 'Network Management / Other'  },
             ]
-        }
+        },
+        forceShowSmallTable: false,
+        station: 'London Station'
     };
   },
   computed: {
@@ -55,16 +57,20 @@ export default {
           if (!!this.trainInputType && !!this.dropdown.selected) {
             EventBus.$emit('show-small-map', true);
           }
-          return !!this.trainInputType && !!this.dropdown.selected;
+          return this.forceShowSmallTable || (!!this.trainInputType && !!this.dropdown.selected);
       }
   },
   components: {
     "progress-bar": ProgressBar
   },
   created: function() {
-      EventBus.$on('point-clicked', metadata => {
-          this.time = Math.floor(metadata.delayAvg * 100) / 100;
-          this.probability = Math.floor(metadata.numberOfEffects / 12 * 100);
+      EventBus.$on('point-clicked', point => {
+          this.time = Math.floor(parseFloat(point.Delay_Avg) * 100) / 100;
+          this.probability = Math.floor(parseInt(point.Number_of_Effects) / 12 * 100);
+          this.station = point.Stanox_Name;
+      });
+      EventBus.$on('show-small-map', value => {
+          this.forceShowSmallTable = value;
       });
   }
 };

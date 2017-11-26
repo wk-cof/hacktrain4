@@ -130,8 +130,8 @@ export default {
         transform: rotate(0deg);
     }
     100%{
-        -webkit-transform: rotate(144deg);
-        transform: rotate(144deg);
+        -webkit-transform: rotate(104deg);
+        transform: rotate(104deg);
     }
 }
 @keyframes loading-3{

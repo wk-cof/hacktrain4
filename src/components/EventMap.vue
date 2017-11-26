@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import delayInstance from "../data/delayInstance2";
+import delayInstance from "../data/delayInstance3";
 import _ from "lodash";
 import { EventBus } from '../event-bus.js';
 import HorizontalTable from './HorizontalTable';
@@ -41,14 +41,10 @@ export default {
       return _.map(delayInstance, item => {
         return {
           position: {
-            lat: item.Latitude,
-            lng: item.Longitude
+            lat: parseFloat(item.Latitude),
+            lng: parseFloat(item.Longitude)
           },
-          metadata: {
-            stanox: item['Affected_Stanox'],
-            numberOfEffects: item['Number_of_Effects'],
-            delayAvg: item['Delay_Avg']
-          }
+          metadata: item
         };
       })
     }

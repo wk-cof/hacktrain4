@@ -20,6 +20,7 @@
 <script>
 import ProgressBar from './ProgressBar';
 import stanoxData from "../data/stanox";
+import { EventBus } from '../event-bus.js';
 import _ from "lodash";
 
 export default {
@@ -63,7 +64,8 @@ export default {
       return lines;
     },
     processClick(idx) {
-        alert('Pin ' + idx + ' was clicked');
+        // alert('Pin ' + idx + ' was clicked');
+        EventBus.$emit('show-small-map', true);
     }
   },
   created: function() {

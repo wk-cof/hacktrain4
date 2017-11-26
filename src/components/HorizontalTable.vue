@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { EventBus } from '../event-bus.js';
+
 export default {
   name: "horizontaltable",
   data() {
@@ -24,6 +26,33 @@ export default {
         }
       ]
     };
+  },
+  created: function() {
+    EventBus.$on('point-clicked', point => {
+        this.items = [
+        {
+          train_service: point.Train_Service1,
+          affected_operator: point.Affected_Operator1,
+          delay_time: point.Delay_Time1,
+          time_to_delay: point.Time_to_Delay1,
+          confidence: point.Confidence1
+        },
+        {
+          train_service: point.Train_Service2,
+          affected_operator: point.Affected_Operator2,
+          delay_time: point.Delay_Time2,
+          time_to_delay: point.Time_to_Delay2,
+          confidence: point.Confidence2
+        },
+        {
+          train_service: point.Train_Service3,
+          affected_operator: point.Affected_Operator3,
+          delay_time: point.Delay_Time3,
+          time_to_delay: point.Time_to_Delay3,
+          confidence: point.Confidence3
+        }
+      ]
+    });
   }
 };
 </script>

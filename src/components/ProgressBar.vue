@@ -7,6 +7,9 @@
             <span class="progress-right">
                 <span class="progress-bar"></span>
             </span>
+            <span class="progress-left">
+                <span class="progress-bar"></span>
+            </span>
             <div class="progress-value">{{time}} min</div>
         </div>
         </div>
@@ -110,24 +113,6 @@ export default {
 }
 .progress.blue .progress-left .progress-bar{
     animation: loading-2 1.5s linear forwards 1.8s;
-}
-.progress.yellow .progress-bar{
-    border-color: #fdba04;
-}
-.progress.yellow .progress-left .progress-bar{
-    animation: loading-3 1s linear forwards 1.8s;
-}
-.progress.pink .progress-bar{
-    border-color: #ed687c;
-}
-.progress.pink .progress-left .progress-bar{
-    animation: loading-4 0.4s linear forwards 1.8s;
-}
-.progress.green .progress-bar{
-    border-color: #1abc9c;
-}
-.progress.green .progress-left .progress-bar{
-    animation: loading-5 1.2s linear forwards 1.8s;
 }
 @keyframes loading-1{
     0%{

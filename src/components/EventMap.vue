@@ -1,5 +1,6 @@
 <template>
   <div>
+    <horizontal-table></horizontal-table>
     <gmap-map
     :center="center"
     :zoom="6"
@@ -21,13 +22,13 @@
 import delayInstance from "../data/delayInstance2";
 import _ from "lodash";
 import { EventBus } from '../event-bus.js';
+import HorizontalTable from './HorizontalTable';
 
 export default {
   name: "eventmap",
   data() {
     return {
       center: {lat: 54.0, lng: -2.0},
-
       markers: []
     };
   },
@@ -54,6 +55,9 @@ export default {
   },
   created: function() {
     this.markers = this.formatInput();
+  },
+  components: {
+    'horizontal-table': HorizontalTable
   }
 };
 </script>

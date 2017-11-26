@@ -18,7 +18,7 @@
         <!-- <input type="text" placeholder="  Select a train from the TRUST DATABASE"> -->
         <b-form inline v-show="!displayInfographics">
             <b-input id="trainInputTypeInput" style="min-width: 550px"
-                v-model="trainInputType"
+                v-model.lazy="trainInputType"
                 placeholder="  Select a train from the TRUST DATABASE" />
             <b-button variant="success">Search</b-button>
         </b-form>
@@ -42,9 +42,10 @@ export default {
             selected: '',
             options: [
                 { value: '', text: 'Incident type' },
-                { value: '1', text: 'This is First option' },
-                { value: '2', text: 'Selected Option' },
-                { value: '3', text: 'Third Option' }
+                { value: '1', text: 'Track' },
+                { value: '2', text: 'Non-Track Assets' },
+                { value: '3', text: 'Severe Weather, Autumn & Structures' },
+                { value: '4', text: 'Network Management / Other'  },
             ]
         }
     };

@@ -29,6 +29,7 @@
 
 <script>
 import ProgressBar from "./ProgressBar";
+import { EventBus } from '../event-bus.js';
 
 export default {
   name: "dashboard",
@@ -51,13 +52,19 @@ export default {
   computed: {
       displayInfographics: function() {
           if (!!this.trainInputType && !!this.dropdown.selected) {
-            this.$emit('showsmallmap');
+            EventBus.$emit('show-small-map', true);
           }
           return !!this.trainInputType && !!this.dropdown.selected;
       }
   },
   components: {
     "progress-bar": ProgressBar
+  },
+  created: function() {
+      EventBus.$on('point-clicked', metadata => {
+          this.time = Math.floor(metadata.delayAvg * 100) / 100;
+          this.probability = Math.floor(metadata.numberOfEffects / 12 * 100);
+      });
   }
 };
 </script>

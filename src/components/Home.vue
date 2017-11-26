@@ -1,6 +1,6 @@
 <template>
   <div class="bg-inverse text-white my-home-div">
-    <dashboard class="my-db" v-on:showsmallmap="showIt"></dashboard>
+    <dashboard class="my-db"></dashboard>
     <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -22,6 +22,8 @@
 import Dashboard from './Dashboard';
 import UkMap from './UkMap';
 import EventMap from './EventMap';
+import { EventBus } from '../event-bus.js';
+
 
 export default {
   name: "home",
@@ -35,10 +37,10 @@ export default {
     'uk-map': UkMap,
     'event-map': EventMap
   },
-  methods: {
-    showIt() {
-      this.showSmallMap = true;
-    }
+  created: function() {
+    EventBus.$on('show-small-map', () => {
+    this.showSmallMap = true;
+  });
   }
 };
 </script>

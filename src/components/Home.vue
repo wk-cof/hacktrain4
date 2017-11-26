@@ -1,6 +1,6 @@
 <template>
   <div class="bg-inverse text-white my-home-div">
-    <dashboard class="my-db"></dashboard>
+    <dashboard class="my-db" v-on:showsmallmap="showIt"></dashboard>
     <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -13,7 +13,8 @@
         </ul>
       </div>
     </nav>
-    <event-map></event-map>
+    <uk-map v-if="!showSmallMap"></uk-map>
+    <event-map v-else></event-map>
   </div>
 </template>
 
@@ -26,12 +27,18 @@ export default {
   name: "home",
   data() {
     return {
+      showSmallMap: false
     };
   },
   components: {
     'dashboard': Dashboard,
-    'event-map': UkMap,
+    'uk-map': UkMap,
     'event-map': EventMap
+  },
+  methods: {
+    showIt() {
+      this.showSmallMap = true;
+    }
   }
 };
 </script>

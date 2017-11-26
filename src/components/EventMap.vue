@@ -19,7 +19,7 @@
 
 <script>
 import stanoxData from "../data/stanox";
-import delayInstance from "../data/delayInstance";
+import delayInstance from "../data/delayInstance2";
 import _ from "lodash";
 
 export default {
@@ -61,7 +61,7 @@ export default {
     },
     getAffectedNodes() {
       return _.map(delayInstance, item => {
-        return item['Affected_Stanox'];
+        return '' + item['Affected_Stanox'];
       });
     },
     getCoordinatesOfAffectedNodes(data, affectedNodes) {

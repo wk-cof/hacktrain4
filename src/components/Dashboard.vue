@@ -50,7 +50,10 @@ export default {
   },
   computed: {
       displayInfographics: function() {
-          return !!this.trainInputType && !!this.dropdown.selected
+          if (!!this.trainInputType && !!this.dropdown.selected) {
+            this.$emit('showsmallmap');
+          }
+          return !!this.trainInputType && !!this.dropdown.selected;
       }
   },
   components: {
